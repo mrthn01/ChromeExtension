@@ -1,0 +1,35 @@
+{
+    "manifest_version": 3,
+    "name": "PageFontExtension",
+    "description": "This extension changes the font style in a specific page.",
+    "version": "1.0",
+    "icons": {
+        "128": "icon128.png",
+        "48": "icon48.png",
+        "16": "icon16.png"
+    },
+    "action": {
+        "default_icon": "icon16.png",
+        "default_popup": "popup.html",
+        "default_title": "PageFontStyle"
+    },
+    "background": {
+        "service_worker": "eventPage.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://developer.chrome.com/*"
+            ],
+            "js": ["jquery-3.7.1.js", "content.js"],
+            "css": ["content.css"]
+        }
+    ],
+    "permissions": [
+        "tabs"
+    ],
+
+    "host_permissions": [
+        "https://developer.chrome.com/*"
+    ]
+}
